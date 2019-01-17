@@ -34,20 +34,54 @@ func NewWorld(row, col int) World {
 	return w
 }
 
-// Exploder
+// Line preset
+func (w World) Line() {
+	// var midCol int
+	// var midRow int
+	// if w.Col%2 == 0 {
+	// 	midCol = (w.Col / 2)
+	// } else {
+	// 	midCol = int(math.Ceil(float64(w.Col) / 2.0))
+	// }
+	// if w.Row%2 == 0 {
+	// 	midRow = (w.Row / 2)
+	// } else {
+	// 	midRow = int(math.Ceil(float64(w.Row) / 2.0))
+	// }
+
+	midCol := (w.Col / 2)
+	midRow := (w.Row / 2)
+
+	w.Cells[midRow][midCol-4].SetAlive(true)
+	w.Cells[midRow][midCol-4].SetAlive(true)
+	w.Cells[midRow][midCol-2].SetAlive(true)
+	w.Cells[midRow][midCol-1].SetAlive(true)
+	w.Cells[midRow][midCol].SetAlive(true)
+	w.Cells[midRow][midCol+1].SetAlive(true)
+	w.Cells[midRow][midCol+2].SetAlive(true)
+	w.Cells[midRow][midCol+3].SetAlive(true)
+	w.Cells[midRow][midCol+4].SetAlive(true)
+	w.Cells[midRow][midCol+5].SetAlive(true)
+
+}
+
+// Exploder preset
 func (w World) Exploder() {
-	var midCol int
-	var midRow int
-	if w.Col%2 == 0 {
-		midCol = (w.Col / 2)
-	} else {
-		midCol = int(math.Ceil(float64(w.Col) / 2.0))
-	}
-	if w.Row%2 == 0 {
-		midRow = (w.Row / 2)
-	} else {
-		midRow = int(math.Ceil(float64(w.Row) / 2.0))
-	}
+	// var midCol int
+	// var midRow int
+	// if w.Col%2 == 0 {
+	// 	midCol = (w.Col / 2)
+	// } else {
+	// 	midCol = int(math.Ceil(float64(w.Col) / 2.0))
+	// }
+	// if w.Row%2 == 0 {
+	// 	midRow = (w.Row / 2)
+	// } else {
+	// 	midRow = int(math.Ceil(float64(w.Row) / 2.0))
+	// }
+
+	midCol := (w.Col / 2)
+	midRow := (w.Row / 2)
 
 	w.Cells[midRow-2][midCol-2].SetAlive(true)
 	w.Cells[midRow-2][midCol].SetAlive(true)
@@ -64,7 +98,7 @@ func (w World) Exploder() {
 
 }
 
-//Tumbler : Start with a tumbler
+//Tumbler preset
 func (w World) Tumbler() {
 	var midCol int
 	var midRow int
@@ -104,7 +138,7 @@ func (w World) Tumbler() {
 
 }
 
-// Glider : Draw the Glider to begin the game
+// Glider preset
 func (w World) Glider() {
 	var midCol int
 	var midRow int

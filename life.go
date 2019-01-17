@@ -25,9 +25,10 @@ var row = flag.Int("r", -1, "number of rows")
 var glider = flag.Bool("g", false, "use the glider as start")
 var tumbler = flag.Bool("t", false, "use the tumbler as start")
 var exploder = flag.Bool("e", false, "use the exploder as start")
+var line = flag.Bool("l", false, "use the line as start")
 var step = flag.Bool("S", false, "step by step")
 var sleepTime = flag.Int("s", 250, "ms between each generations")
-var cmd = flag.Bool("cmd", false, "displays help")
+var cmd = flag.Bool("cmd", false, "display without using termbox-go")
 var help = flag.Bool("h", false, "displays help")
 
 var infinit = true
@@ -76,6 +77,9 @@ func Sleep() {
 			if ev.Ch == 'p' {
 				return
 			}
+			if ev.Key == termbox.KeySpace {
+				return
+			}
 		}
 	} else {
 		time.Sleep(time.Duration(*sleepTime) * time.Millisecond)
@@ -120,6 +124,8 @@ func CmdMain() {
 		world.Tumbler()
 	} else if *exploder {
 		world.Exploder()
+	} else if *line {
+		world.Line()
 	} else {
 		world.Start()
 	}
