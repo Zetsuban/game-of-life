@@ -18,9 +18,8 @@ func (c Cell) Str() string {
 func (c Cell) Rune() rune {
 	if c.Alive() {
 		return ' '
-	} else {
-		return ' '
 	}
+	return ' '
 }
 
 // SetAlive : sets the state of alive
