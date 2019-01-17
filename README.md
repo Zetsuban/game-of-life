@@ -39,3 +39,11 @@ spc      | toggles step by step
 p        | while step by step go to next gen
 esc      | quit the game
 ctrl + q | quit the game
+
+## TODO
+
+- [] Implement more presets
+- [] Restart World without quiting the game
+- [] Change game speed within game
+- [] Themes (???)
+- [x] ~~Use termbox for the display~~
