@@ -86,6 +86,20 @@ func Sleep() {
 	}
 }
 
+func presets(world entities.World) {
+	if *glider {
+		world.Glider()
+	} else if *tumbler {
+		world.Tumbler()
+	} else if *exploder {
+		world.Exploder()
+	} else if *line {
+		world.Line()
+	} else {
+		world.Start()
+	}
+}
+
 func main() {
 	flag.Usage = Usage
 	flag.Parse()
@@ -118,17 +132,7 @@ func CmdMain() {
 
 	// Generate new world and base alive cells
 	world := entities.NewWorld(*row, *col)
-	if *glider {
-		world.Glider()
-	} else if *tumbler {
-		world.Tumbler()
-	} else if *exploder {
-		world.Exploder()
-	} else if *line {
-		world.Line()
-	} else {
-		world.Start()
-	}
+	presets(world)
 
 	Play(world, gen)
 
@@ -159,15 +163,7 @@ func TBMain() {
 
 	// Generate new world and base alive cells
 	world := entities.NewWorld(*row, *col)
-	if *glider {
-		world.Glider()
-	} else if *tumbler {
-		world.Tumbler()
-	} else if *exploder {
-		world.Exploder()
-	} else {
-		world.Start()
-	}
+	presets(world)
 
 	termbox.SetInputMode(termbox.InputEsc)
 	// termbox.HideCursor()

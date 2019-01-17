@@ -1,7 +1,6 @@
 package entities
 
 import (
-	"math"
 	"math/rand"
 	"time"
 )
@@ -53,7 +52,7 @@ func (w World) Line() {
 	midRow := (w.Row / 2)
 
 	w.Cells[midRow][midCol-4].SetAlive(true)
-	w.Cells[midRow][midCol-4].SetAlive(true)
+	w.Cells[midRow][midCol-3].SetAlive(true)
 	w.Cells[midRow][midCol-2].SetAlive(true)
 	w.Cells[midRow][midCol-1].SetAlive(true)
 	w.Cells[midRow][midCol].SetAlive(true)
@@ -100,18 +99,21 @@ func (w World) Exploder() {
 
 //Tumbler preset
 func (w World) Tumbler() {
-	var midCol int
-	var midRow int
-	if w.Col%2 == 0 {
-		midCol = (w.Col / 2)
-	} else {
-		midCol = int(math.Ceil(float64(w.Col) / 2.0))
-	}
-	if w.Row%2 == 0 {
-		midRow = (w.Row / 2)
-	} else {
-		midRow = int(math.Ceil(float64(w.Row) / 2.0))
-	}
+	// var midCol int
+	// var midRow int
+	// if w.Col%2 == 0 {
+	// 	midCol = (w.Col / 2)
+	// } else {
+	// 	midCol = int(math.Ceil(float64(w.Col) / 2.0))
+	// }
+	// if w.Row%2 == 0 {
+	// 	midRow = (w.Row / 2)
+	// } else {
+	// 	midRow = int(math.Ceil(float64(w.Row) / 2.0))
+	// }
+
+	midCol := (w.Col / 2)
+	midRow := (w.Row / 2)
 
 	w.Cells[midRow-2][midCol-1].SetAlive(true)
 	w.Cells[midRow-2][midCol-2].SetAlive(true)
@@ -140,18 +142,21 @@ func (w World) Tumbler() {
 
 // Glider preset
 func (w World) Glider() {
-	var midCol int
-	var midRow int
-	if w.Col%2 == 0 {
-		midCol = (w.Col / 2)
-	} else {
-		midCol = int(math.Ceil(float64(w.Col) / 2.0))
-	}
-	if w.Row%2 == 0 {
-		midRow = (w.Row / 2)
-	} else {
-		midRow = int(math.Ceil(float64(w.Row) / 2.0))
-	}
+	// var midCol int
+	// var midRow int
+	// if w.Col%2 == 0 {
+	// 	midCol = (w.Col / 2)
+	// } else {
+	// 	midCol = int(math.Ceil(float64(w.Col) / 2.0))
+	// }
+	// if w.Row%2 == 0 {
+	// 	midRow = (w.Row / 2)
+	// } else {
+	// 	midRow = int(math.Ceil(float64(w.Row) / 2.0))
+	// }
+
+	midCol := (w.Col / 2)
+	midRow := (w.Row / 2)
 
 	w.Cells[midRow-1][midCol].SetAlive(true)
 	w.Cells[midRow][midCol+1].SetAlive(true)
